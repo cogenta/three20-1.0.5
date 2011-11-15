@@ -73,7 +73,7 @@ static CGFloat kThumbSpacing = 4;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)hasMoreToLoad {
-  return _photoSource.maxPhotoIndex+1 < _photoSource.numberOfPhotos;
+  return _photoSource.maxPhotoIndex+1 < _photoSource.nPhotos;
 }
 
 
@@ -127,14 +127,14 @@ static CGFloat kThumbSpacing = 4;
   if (indexPath.row == [tableView numberOfRowsInSection:0]-1 && self.hasMoreToLoad) {
     NSString* text = TTLocalizedString(@"Load More Photos...", @"");
     NSString* caption = nil;
-    if (_photoSource.numberOfPhotos == -1) {
+    if (_photoSource.nPhotos == -1) {
       caption = [NSString stringWithFormat:TTLocalizedString(@"Showing %@ Photos", @""),
                  TTFormatInteger(_photoSource.maxPhotoIndex+1)];
 
     } else {
       caption = [NSString stringWithFormat:TTLocalizedString(@"Showing %@ of %@ Photos", @""),
                  TTFormatInteger(_photoSource.maxPhotoIndex+1),
-                 TTFormatInteger(_photoSource.numberOfPhotos)];
+                 TTFormatInteger(_photoSource.nPhotos)];
     }
 
     return [TTTableMoreButton itemWithText:text subtitle:caption];
