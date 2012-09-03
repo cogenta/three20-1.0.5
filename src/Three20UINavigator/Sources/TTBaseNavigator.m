@@ -675,7 +675,8 @@ __attribute__((weak_import));
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIViewController*)viewControllerForURL: (NSString*)URL
                                     query: (NSDictionary*)query
-                                  pattern: (TTURLNavigatorPattern**)pattern {
+                                  pattern: (TTURLPattern**)aPattern {
+  TTURLNavigatorPattern** pattern = (TTURLNavigatorPattern**)aPattern;
   NSRange fragmentRange = [URL rangeOfString:@"#" options:NSBackwardsSearch];
   if (fragmentRange.location != NSNotFound) {
     NSString* baseURL = [URL substringToIndex:fragmentRange.location];
