@@ -83,6 +83,8 @@
 
 - (void)endEditing;
 
+- (void)recreateButtons;
+
 /**
  * Dims the launcher view except for a transparent circle around the given item. The given text
  * will also be shown center-aligned below or above the circle, as appropriate. The item can be
